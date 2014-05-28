@@ -1,0 +1,39 @@
+public void onClick()
+    {
+    	 EditText nameField=(EditText) findViewById(R.id.name_field);
+    	 String name=nameField.getText().toString();
+    	 if(name.length()==0)
+    	 {
+    		 new AlertDialog.Builder(this)
+    		 				.setMessage(R.string.error_name_missing)
+    		 				.setNeutralButton(R.string.error_ok,null)
+    		 				.show();
+    		 return;
+    	 }
+    }
+     
+
+
+
+
+
+hiButton=(Button) findViewById(R.id.hi_button);
+        hiButton.setOnClickListener((OnClickListener) this);
+        helloButton=(Button) findViewById(R.id.hello_button);
+        helloButton.setOnClickListener((OnClickListener) this);
+
+
+
+
+
+
+public final static String EXTRA_MESSAGE = "com.example,myfirstapp.MESSAGE";
+
+public void sendMessage(View view)
+	{
+	Intent intent = new Intent(this, DisplayMessageActivity.class);
+	EditText editText = (EditText) findViewById(R.id.edit_message);
+	String message = editText.getText().toString();
+	intent.putExtra(EXTRA_MESSAGE, message);
+	startActivity(intent);
+	}
